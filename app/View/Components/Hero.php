@@ -26,7 +26,10 @@ class Hero extends Component
     public function render()
     {
         $background_image = Cache::remember('users', 3600, function () {
-            return Post::with('images')->inRandomOrder()->limit(1)->get()->first()->original();
+            $post = Post::with('images')->inRandomOrder()->limit(1)->get()->first();
+            if( $post ) {
+                return $post->original();
+            }
         });
         return view('components.hero', compact('background_image'));
     }
