@@ -1,0 +1,295 @@
+
+.section, section {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  position: relative;
+}
+.container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.none, .hidden {
+  display: none;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.full-column {
+  grid-column: 1/-1;
+}
+
+/* Extra small devices (phones, 576px and down) */
+@media only screen and (max-width: 576px) {
+
+  // Display helper classes
+  .xs-flex {
+    display: flex;
+  }
+  
+  .xs-grid {
+    display: grid;
+  }
+
+  .xs-block {
+    display: block;
+  }
+
+  .xs-inline-block {
+    display: inline-block;
+  }
+
+  .xs-none {
+    display: none;
+  }
+   
+}
+
+/* Small devices (portrait tablets and large phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+  
+}
+
+@media only screen and (min-width: 576px)  and (max-width: 768px) {
+
+  // Display helper classes
+  .sm-flex {
+    display: flex;
+  }
+
+  .sm-grid {
+    display: grid;
+  }
+
+  .sm-block {
+    display: block;
+  }
+
+  .sm-inline-block {
+    display: inline-block;
+  }
+
+  .sm-none {
+    display: none;
+  }
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+  .flex.columns-4 {
+    & > * {
+      flex: 1 0 24%;
+      margin: 0.25%
+    }
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
+
+  // Display helper classes
+  .md-flex {
+    display: flex;
+  }
+
+  .md-grid {
+    display: grid;
+  }
+
+  .md-block {
+    display: block;
+  }
+
+  .md-inline-block {
+    display: inline-block;
+  }
+
+  .md-none {
+    display: none;
+  }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+  .grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+
+/* Large devices (laptops/desktops, 1024px and up) */
+@media only screen and (max-width: 1024px) {
+  
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  
+  // Display helper classes
+  .lg-flex {
+    display: flex;
+  }
+
+  .lg-grid {
+    display: grid;
+  }
+
+  .lg-block {
+    display: block;
+  }
+
+  .lg-inline-block {
+    display: inline-block;
+  }
+
+  .lg-none {
+    display: none;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  
+  // Display helper classes
+  .xl-flex {
+    display: flex;
+  }
+
+  .xl-grid {
+    display: grid;
+  }
+
+  .xl-block {
+    display: block;
+  }
+
+  .xl-inline-block {
+    display: inline-block;
+  }
+
+  .xl-none {
+    display: none;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+}
+
+/* Extra extra large */
+@media only screen and (min-width: 1400px) {
+
+  // Display helper classes
+  .xxl-flex {
+    display: flex;
+  }
+
+  .xxl-grid {
+    display: grid;
+  }
+
+  .xxl-block {
+    display: block;
+  }
+
+  .xxl-inline-block {
+    display: inline-block;
+  }
+
+  .xxl-none {
+    display: none;
+  }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1300px) {
+
+  .container {
+    width: 1140px;
+  }
+
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1400px) {
+
+  .container {
+    width: 1240px;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1500px) {
+
+  .container {
+    width: 1340px;
+  }
+
+}
+
+@media only screen and (min-width: 1500px) {
+
+  .container {
+    width: 1440px;
+  }
+
+}

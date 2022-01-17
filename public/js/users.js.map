@@ -1,0 +1,1 @@
+{"version":3,"file":"/js/users.js","mappings":";;;;;AAAAA,OAAO,CAACC,GAAR,CAAY,OAAZ,E","sources":["webpack:///./resources/js/users/users.js"],"sourcesContent":["console.log('users');"],"names":["console","log"],"sourceRoot":""}

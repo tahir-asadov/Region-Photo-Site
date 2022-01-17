@@ -1,0 +1,64 @@
+.up_and_down_animation {
+  position: relative;
+  animation-name: up_and_down_animation;
+  animation-timing-function: ease-in-out;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes up_and_down_animation {
+  from {
+    top: 0px;
+  }
+  50% {
+    top: -20px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+.swing_animation_left {
+  position: absolute;
+  animation-name: swing_animation_left;
+  animation-timing-function: ease-in-out;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  transform-origin: bottom center;
+}
+
+@keyframes swing_animation_left {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.swing_animation_right {
+  position: absolute;
+  animation-name: swing_animation_right;
+  animation-timing-function: ease-in-out;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  transform-origin: bottom center;
+}
+
+@keyframes swing_animation_right {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,41 @@
+// Libraries
+// @import 'libs/animate';
+// @import 'libs/fontawesome';
+// @import 'libs/jquery.bxslider';
+// @import 'libs/aos';
+// @import 'libs/magnific-popup';
+// @import 'libs/slick';
+// @import 'libs/owl.carousel.min';
+// @import 'libs/owl.theme.default.min';
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+// Partials
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/general';
+@import 'partials/typography';
+@import 'partials/form';
+@import 'partials/components';
+@import 'partials/layout';
+// @import 'partials/animations';
+
+// Sections
+@import 'sections/error';
+@import 'sections/hero';
+@import 'sections/posts';
+@import 'sections/post';
+@import 'sections/related';
+@import 'sections/author-posts';
+
+// body.bg {
+//   background-image: url(../images/bgs/home.png);
+//   background-position: left top;
+//   background-repeat: no-repeat;
+//   > * {
+//     opacity: 0.5;
+//   }
+// }

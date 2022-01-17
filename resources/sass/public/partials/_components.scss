@@ -1,0 +1,326 @@
+/* ==========================================================================
+[Dropdown Menu Component]
+========================================================================== */
+.dropdown-menu-component {
+  position: relative;
+  z-index: 1;
+  ul {
+    list-style: none;
+    padding: 0;
+    transition: all 300ms;
+    transform-origin: top left;
+  }
+  a {
+    display: inline-block;
+    padding: 15px;
+    color: $black;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+    i {
+      margin-right: 5px;
+    }
+  }
+  & > ul {
+    & > li {
+      display: inline;
+      position: relative;
+      & > a {
+        width: 130px;
+      }
+      & > ul {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 130px;
+        & > li {
+          position: relative;
+          & a {
+            width: 100%;
+            text-align: center;
+          }
+          & ul {
+            position: absolute;
+            top: 0;
+            left: 130px;
+            width: 130px;
+            li {
+              position: relative;
+            }
+          }
+        }
+      }
+    }
+  }
+  & li ul {
+    box-shadow: 0 4px 9px -8px black;
+    background: white;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transform: scale(0, 0);
+  }
+  li:hover {
+    & > ul {
+      display: block;
+      height: auto;
+      overflow: visible;
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+}
+
+
+
+/* ==========================================================================
+[Video]
+========================================================================== */
+.video {
+  position: relative;
+  video {
+    display: block;
+    width: 100%;
+  }
+  &:after {
+    content: "\f144";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 120px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  &.playing {
+    position: relative;
+    &:after {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  &.light {
+    &:after {
+      color: white;
+    }
+  }
+  &[controls]:after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+[Wordpress Pagination]
+========================================================================== */
+.nav-links, .pagination {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 30px 0;
+  a, span {
+    display: inline-block;
+    padding: 13px 16px;
+    font-size: 14px;
+    line-height: 23px;
+    color: #424242;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(218,218,218,0);
+    border: 1px solid #e5e5e5;
+    text-decoration: none;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 30px 0;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.current {
+      color: $green;
+      border-color: $green;
+      font-weight: bold;
+    }
+  }
+}
+
+/* ==========================================================================
+[Wordpress Comments]
+========================================================================== */
+.comments-area {
+  font-size: 14px;
+  h4, h3, h4 a, h3 a {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333333;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  ol, ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .comment-author {
+    display: flex;
+  }
+  .comment-list {
+    padding-left: 0;
+    ol, ul {
+      .comment-body {
+        padding-left: 50px;
+      }
+    }
+  }
+  .comment-list .comment {
+    .comment-body {
+      border-bottom: #ebebeb solid 1px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      .comment-meta {
+        .comment-author {
+          display: grid;
+          grid-template-columns: 50px 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-gap: 10px;
+          img {
+            grid-row: 1/-1;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            display: block;
+            margin: 0;
+          }
+          .fn, .says {
+          }
+        }
+        .comment-metadata {
+          margin-top: -20px;
+          text-align: right;
+          font-size: 12px;
+          line-height: 24px;
+          color: #999999;
+          font-weight: 400;
+          a {
+            color: #999999;
+          }
+          .edit-link {
+            color: #333;
+            margin-left: 5px;
+            .edit-link a {
+              color: #333;
+            }
+          }
+        }
+      }
+      .comment-content {
+        font-style: italic;
+      }
+      .reply {
+        text-align: right;
+        a {
+          color: $blue;
+          font-weight: 500;
+        }
+      }  
+    }
+    .comment-respond {
+      .comment-reply-title {
+        font-size: 13px;
+        a {
+          color: $blue;
+          margin-left: 10px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+[Mobile Menu]
+========================================================================== */
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-menu-overlay {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  .mobile-menu-content {
+    
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .mobile-menu-button {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  body.mobile-menu-open {
+    overflow: hidden;
+    .mobile-menu-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba( 0,0,0,0.5 );
+      z-index: 2;
+    }
+    .mobile-menu {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      max-width: 300px;
+      max-height: 500px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+      .mobile-menu-content {
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            list-style: none;
+            a {
+              color: $green;
+              display: block;
+              text-align: center;
+              padding: 10px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

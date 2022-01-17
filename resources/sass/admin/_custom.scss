@@ -1,0 +1,10 @@
+header {
+  background-color: dodgerblue;
+  padding: 5px 0;
+  .nav-link {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+}

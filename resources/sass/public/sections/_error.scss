@@ -1,0 +1,23 @@
+section.error {
+  height: calc(100vh - 200px);
+  .row {
+    height: 100%;
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h1 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #666161;
+        i {
+          color: #db1a1a;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
