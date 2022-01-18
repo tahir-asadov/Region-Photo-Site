@@ -7,7 +7,7 @@
             </div><!-- .left -->
             <div class="right">
                 @auth
-                <a href="#"><i class="fas fa-cloud-upload-alt"></i>Upload</a>
+                <a href="{{route('author.upload')}}"><i class="fas fa-cloud-upload-alt"></i>Upload</a>
                 <a href="{{route('author.profile')}}"><i class="fas fa-user"></i>{{auth()->user()->name}}</a>
                 @role('super-admin')
                 <a href="{{route('dashboard')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
