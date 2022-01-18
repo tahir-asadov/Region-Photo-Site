@@ -19,6 +19,7 @@
                 @endauth
                 @guest
                 <a href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
+                <a href="/register"><i class="fas fa-user-plus"></i>Register</a>
                 @endguest
             </div><!-- .right -->
         </div><!-- .container -->
