@@ -12,3 +12,4 @@
 
 ### First install dependencies by runnging ```composer install```
 ### Then migrate database by runnging ```php artisan migrate --seed```
+### Run ```php artisan storage:link``` to create symlink
