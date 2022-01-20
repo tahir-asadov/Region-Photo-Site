@@ -53,6 +53,29 @@
           @yield('sidebar')
         </div><!-- .col-2 -->
         <div class="col-10">
+          
+          @if($errors->any())
+          <div class="notification error-notification">
+            {!! implode('', $errors->all('<p>:message</p>')) !!}
+          </div>
+          @endif
+
+          @if (session('status'))
+          <div class="notification status-notification">
+            <p>
+              {{ session('status') }}
+            </p>
+          </div>
+          @endif
+
+          @if (session('success'))
+          <div class="notification success-notification">
+            <p>
+              {{ session('success') }}
+            </p>
+          </div>
+          @endif
+
           @yield('content')
         </div><!-- .col-10 -->
       </div><!-- .row -->
@@ -61,20 +84,5 @@
   <footer>
 
   </footer>
-  @if($errors->any())
-  <div class="errors">
-    {!! implode('', $errors->all('<p style="color: red">:message</p>')) !!}
-  </div>
-  @endif
-  @if (session('status'))
-    <p style="color: blue;">
-      {{ session('status') }}
-    </p>
-  @endif
-  @if (session('success'))
-    <p style="color: green;">
-      {{ session('success') }}
-    </p>
-  @endif
 </body>
 </html>
