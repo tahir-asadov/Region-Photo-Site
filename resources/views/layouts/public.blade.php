@@ -9,6 +9,7 @@
     <title>Public - @yield('title', 'Region Photo')</title>
     <link rel="icon" href="favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon"/>
+    @yield('meta')
 </head>
 <body class="@yield('body_class')">
 

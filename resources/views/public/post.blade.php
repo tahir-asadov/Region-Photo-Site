@@ -1,5 +1,11 @@
 @extends('layouts.public')
 
+@section('meta')
+<meta property="og:title" content="{{$post->title}}" />
+<meta property="og:description" content="{{$post->title}}" />
+<meta property="og:image" content="{{$post->featured_imaged()}}" />
+@endsection
+
 @section('body_class', 'post')
 
 @section('content')
@@ -29,7 +35,7 @@
               ><i class="fab fa-facebook-f"></i></a>
               <a
                 target="_blank"
-                href="http://twitter.com/share?text={{$post->region->title}} {{$post->city->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city->title}}"
+                href="http://twitter.com/share?text={{$post->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city->title}}"
                 class="twitter"
               ><i class="fab fa-twitter"></i></a>
               <a

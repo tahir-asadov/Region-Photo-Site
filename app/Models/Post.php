@@ -67,4 +67,9 @@ class Post extends Model
     {
         return Str::slug($this->title);
     }
+
+    public function featured_imaged()
+    {
+        return env('APP_URL') . '/storage/post_images/' . $this->thumbnail();
+    }
 }
