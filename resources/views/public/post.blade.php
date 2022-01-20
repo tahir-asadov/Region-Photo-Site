@@ -22,9 +22,21 @@
           <div class="share">
             <h3>Share post on:</h3>
             <div class="social">
-              <a href="{{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}" class="facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="{{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}" class="twitter"><i class="fab fa-twitter"></i></a>
-              <a href="{{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
+              <a
+                target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}"
+                class="facebook"
+              ><i class="fab fa-facebook-f"></i></a>
+              <a
+                target="_blank"
+                href="http://twitter.com/share?text={{$post->region->title}} {{$post->city->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city->title}}"
+                class="twitter"
+              ><i class="fab fa-twitter"></i></a>
+              <a
+                target="_blank"
+                href="http://pinterest.com/pin/create/button/?url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}"
+                class="pinterest"
+              ><i class="fab fa-pinterest-p"></i></a>
             </div><!-- .social -->
           </div><!-- .share -->
         </div><!-- .left -->
