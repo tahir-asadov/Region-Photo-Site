@@ -93,17 +93,28 @@ class AuthorController extends Controller
     $data = $request->validate([
       'title' => 'required|min:1|max:255',
       'region' => 'required|numeric|min:1',
-      'city' => 'required|numeric|min:1',
-      'village' => 'required|numeric|min:1',
+      'city' => 'numeric',
+      'village' => 'numeric',
       'image.*' => 'required|mimes:jpg,bmp,png'
     ]);
-    $post = Post::create([
-        'title' => $data['title'],
-        'region_id' => $data['region'],
-        'city_id' => $data['city'],
-        'village_id' => $data['village'],
-        'user_id' => auth()->user()->id,
-    ]);
+
+    $create = array(
+      'title' => $data['title'],
+      'region_id' => $data['region'],
+      'city_id' => $data['city'],
+      'village_id' => $data['village'],
+      'user_id' => auth()->user()->id,
+    );
+    
+    if( !$data['village'] ) {
+      unset($create['village_id']);
+    }
+    if( !$data['city'] ) {
+      unset($create['city_id']);
+    }
+
+    $post = Post::create($create);
+
     if($post){
       if($request->file('image')) {
         foreach ($request->file('image') as $key => $file) {
@@ -142,20 +153,31 @@ class AuthorController extends Controller
     $data = $request->validate([
       'title' => 'required|min:1|max:255',
       'region' => 'required|numeric|min:1',
-      'city' => 'required|numeric|min:1',
-      'village' => 'required|numeric|min:1',
+      'city' => 'numeric',
+      'village' => 'numeric',
       'image.*' => 'required|mimes:jpg,bmp,png'
     ]);
 
     $post = Post::where(['user_id' => auth()->user()->id, 'id' => $id])->first();
     if( $post ) {
-      $post->update([
-          'title' => $data['title'],
-          'region_id' => $data['region'],
-          'city_id' => $data['city'],
-          'village_id' => $data['village'],
-          // 'published' => '0',
-      ]);
+
+      $update = array(
+        'title' => $data['title'],
+        'region_id' => $data['region'],
+        'city_id' => $data['city'],
+        'village_id' => $data['village'],
+        'published' => '0',
+        'user_id' => auth()->user()->id,
+      );
+      
+      if( !$data['village'] ) {
+        unset($update['village_id']);
+      }
+      if( !$data['city'] ) {
+        unset($update['city_id']);
+      }
+      $post->update($update);
+
       if($request->file('image')) {
 
         foreach ($request->file('image') as $key => $file) {
