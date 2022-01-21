@@ -41,3 +41,16 @@ body {
     }
   }
 }
+
+.navigation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  a {
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+  }
+}

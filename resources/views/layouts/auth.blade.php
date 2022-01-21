@@ -8,6 +8,10 @@
   <title>Users - @yield('title', 'Region Photo')</title>
 </head>
 <body>
+
+  <div class="navigation-container">
+    <a href="/"><i class="fas fa-arrow-left"></i> Back</a>  
+  </div><!-- .navigation-container -->
   
   <div class="container">
     <div class="row">
