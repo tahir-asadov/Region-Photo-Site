@@ -9,6 +9,7 @@
       <tr>
         <th>ID</th>
         <th>Title</th>
+        <th>Description</th>
         <th>Status</th>
         <th>Region</th>
         <th>City</th>
@@ -23,9 +24,10 @@
       <tr>
         <td>{{ $post->id }}</td>
         <td>{{ $post->title }}</td>
+        <td>{{ $post->description }}</td>
         <td>{{ $post->published ? 'Published' : 'Draft' }}</td>
         <td>{{ $post->region->title }}</td>
-        <td>{{ $post->city->title }}</td>
+        <td>{{ $post->city ? $post->city->title : '-' }}</td>
         <td>{{ $post->village ? $post->village->title : '-' }}</td>
         <td>{{ $post->user->name }}</td>
         <td><a href="{{route('post.edit', ['post' => $post->id])}}">Edit</a></td>
