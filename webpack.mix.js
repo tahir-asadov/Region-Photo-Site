@@ -16,7 +16,7 @@ mix.js('resources/js/admin/admin.js', 'js/admin.js')
     // .js('resources/js/users/users.js', 'js/users.js')
     // .sass('resources/sass/admin/admin.scss', 'css/admin.css')
     // .sass('resources/sass/public/public.scss', 'css/public.css')
-    // .sass('resources/sass/users/users.scss', 'css/users.css')
+    .sass('resources/sass/users/users.scss', 'css/users.css')
     .sass('resources/sass/auth/auth.scss', 'css/auth.css')
     // .copy(
     //     'node_modules/@fortawesome/fontawesome-free/webfonts',

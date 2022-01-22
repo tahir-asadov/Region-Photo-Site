@@ -14,20 +14,26 @@
       <div class="row">
         <div class="col-12">
           @if($errors->any())
-          <div class="errors">
-            {!! implode('', $errors->all('<p style="color: red">:message</p>')) !!}
+          <div class="notification error-notification">
+            {!! implode('', $errors->all('<p>:message</p>')) !!}
           </div>
           @endif
+
           @if (session('status'))
-            <p class="color: green;">
+          <div class="notification status-notification">
+            <p>
               {{ session('status') }}
             </p>
+          </div>
           @endif
+
           @if (session('success'))
-            <p class="color: green;">
+          <div class="notification success-notification">
+            <p>
               {{ session('success') }}
             </p>
-          @endif  
+          </div>
+          @endif
         </div><!-- .col-12 -->  
       </div><!-- .row -->
     </div><!-- .container-fluid -->  
