@@ -22,7 +22,7 @@
               <div><b>Date: </b>{{$post->created_at->diffForHumans()}}</div>
               <div><b>Author: </b><a href="{{$post->user->url()}}">{{$post->user->name}}</a></div>
               <div><b>Region: </b><a href="{{$post->region->url()}}">{{$post->region->title}}</a></div>
-              <div><b>City: </b><a href="{{$post->city->url()}}">{{$post->city->title}}</a></div>
+              <div><b>City: </b><a href="{{$post->city ? $post->city->url() : '#'}}">{{$post->city ? $post->city->title : '-'}}</a></div>
               <div><b>Village: </b><a href="{{$post->village ? $post->village->url() : '#'}}">{{$post->village ? $post->village->title : '-'}}</a></div>
           </div><!-- .info -->
           <div class="share">
@@ -35,7 +35,7 @@
               ><i class="fab fa-facebook-f"></i></a>
               <a
                 target="_blank"
-                href="http://twitter.com/share?text={{$post->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city->title}}"
+                href="http://twitter.com/share?text={{$post->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city ? $post->city->title : ''}}"
                 class="twitter"
               ><i class="fab fa-twitter"></i></a>
               <a

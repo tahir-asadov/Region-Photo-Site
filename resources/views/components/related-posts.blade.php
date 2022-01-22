@@ -15,7 +15,9 @@
             </a>
             <div class="info">
                 <div class="top">
+                    @if ($post->city)
                     <a href="{{$post->city->url()}}">{{$post->city->title}}</a>
+                    @endif
                     <span>{{count($post->images)}} photos</span>
                 </div><!-- .top -->
                 <div class="bottom">
