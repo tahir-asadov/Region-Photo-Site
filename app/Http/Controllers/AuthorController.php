@@ -197,7 +197,8 @@ class AuthorController extends Controller
         }
       }
 
-      return redirect()->route('author.edit', ['id' => $post->id])->with('success', 'Post updated');
+      // return redirect()->route('author.edit', ['id' => $post->id])->with('success', 'Post updated');
+      return redirect()->route('author.uploads')->with('success', 'Post added');
     }else {
       return redirect()->route('author.uploads')->with('error', 'Post not found');
     }
