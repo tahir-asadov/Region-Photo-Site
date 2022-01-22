@@ -19,7 +19,7 @@
       @foreach ($villages as $village)
       <tr>
         <td>{{ $village->id }}</td>
-        <td>{{ $village->title }}</td>
+        <td><a href="{{route('public.village', ['village' => $village->slug])}}">{{ $village->title }}</a></td>
         <td>{{ $village->slug }}</td>
         <td>-</td>
         <td><a href="{{route('village.edit', ['village' => $village->id])}}">Edit</a></td>
