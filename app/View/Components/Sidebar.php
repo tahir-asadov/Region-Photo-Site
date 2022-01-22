@@ -29,27 +29,27 @@ class Sidebar extends Component
             'post' => [
                 'title' => 'Posts',
                 'route' => route('post.index'),
-                'class' => (Request::is('post') || Request::is('post/*') ? $currentClassName: ''),
+                'class' => (Request::is('admin/post') || Request::is('admin/post/*') ? $currentClassName: ''),
             ],
             'region' => [
                 'title' => 'Regions',
                 'route' => route('region.index'),
-                'class' => (Request::is('region') || Request::is('region/*') ? $currentClassName: ''),
+                'class' => (Request::is('admin/region') || Request::is('admin/region/*') ? $currentClassName: ''),
             ],
             'city' => [
                 'title' => 'Cities',
                 'route' => route('city.index'),
-                'class' => (Request::is('city') || Request::is('city/*') ? $currentClassName: ''),
+                'class' => (Request::is('admin/city') || Request::is('admin/city/*') ? $currentClassName: ''),
             ],
             'village' => [
                 'title' => 'Villages',
                 'route' => route('village.index'),
-                'class' => (Request::is('village') || Request::is('village/*') ? $currentClassName: ''),
+                'class' => (Request::is('admin/village') || Request::is('admin/village/*') ? $currentClassName: ''),
             ],
             'image' => [
                 'title' => 'Images',
                 'route' => route('image.index'),
-                'class' => (Request::is('image') || Request::is('image/*') ? $currentClassName: ''),
+                'class' => (Request::is('admin/image') || Request::is('image/*') ? $currentClassName: ''),
             ],
             'user' => [
                 'title' => 'Users',
