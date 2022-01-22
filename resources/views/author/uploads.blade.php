@@ -21,8 +21,8 @@
 				<td>{{ $post->title }}</td>
 				<td>{{ $post->published ? 'Published' : 'Draft' }}</td>
 				<td>{{ $post->region->title }}</td>
-				<td>{{ $post->city->title }}</td>
-				<td>{{ $post->village->title }}</td>
+				<td>{{ $post->city ? $post->city->title : '-' }}</td>
+				<td>{{ $post->village ? $post->village->title : '-' }}</td>
 				<td>{{ $post->user->name }}</td>
 				<td><a href="{{ route('author.edit', ['id' => $post->id]) }}">Edit</a></td>
 				<td>

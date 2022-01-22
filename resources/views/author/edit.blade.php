@@ -5,10 +5,19 @@
 <form method="post" action="{{route('author.update', ['id' => $post->id])}}" enctype="multipart/form-data">
   @csrf
   @method('put')
+  
   <div class="mb-2">
     <label for="title" class="form-label fw-bold">Title</label>
     <input type="text" value="{{old('title', $post->title)}}" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title of the post">
     @error('title')
+    <div class="text-danger">{{$message}}</div>
+    @enderror
+  </div>
+
+  <div class="mb-2">
+    <label for="description" class="form-label fw-bold">Description</label>
+    <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="description of the post">{{old('description', $post->description)}}</textarea>
+    @error('description')
     <div class="text-danger">{{$message}}</div>
     @enderror
   </div>
