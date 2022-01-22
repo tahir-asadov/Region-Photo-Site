@@ -1,6 +1,10 @@
 @extends('layouts.author')
 
 @section('content')
+<div class="navigation-container">
+  <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Back</a>  
+</div><!-- .navigation-container -->
+
 <form method="post" action="{{route('author.store')}}" enctype="multipart/form-data">
   @csrf
   <div class="mb-2">

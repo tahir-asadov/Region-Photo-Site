@@ -33,3 +33,13 @@
     }
   }
 }
+
+.navigation-container {
+  width: 100%;
+  a {
+    padding: 10px 10px 10px 0;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+  }
+}

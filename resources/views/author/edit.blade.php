@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div class="navigation-container">
+  <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Back</a>  
+</div><!-- .navigation-container -->
 <form method="post" action="{{route('author.update', ['id' => $post->id])}}" enctype="multipart/form-data">
   @csrf
   @method('put')

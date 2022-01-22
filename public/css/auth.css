@@ -17455,38 +17455,4 @@ body .container .row .content {
   font-weight: bold;
 }
 
-.notification {
-  margin: 10px 0;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.notification p {
-  margin: 0;
-}
-.notification.success-notification {
-  background: #ecf0ec;
-  border: solid 1px green;
-  color: green;
-}
-.notification.success-notification p {
-  color: green;
-}
-.notification.status-notification {
-  background: #a2d7ec;
-  border: solid 1px #108cbd;
-  color: #108cbd;
-}
-.notification.status-notification p {
-  color: #108cbd;
-}
-.notification.error-notification {
-  background: #fbdbdb;
-  border: solid 1px #dc3545;
-  color: #dc3545;
-}
-.notification.error-notification p {
-  color: #dc3545;
-}
-
 /*# sourceMappingURL=auth.css.map*/
