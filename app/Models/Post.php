@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'slug', 'region_id', 'city_id', 'village_id', 'user_id', 'published'];
+    protected $fillable = ['title', 'description', 'slug', 'region_id', 'city_id', 'village_id', 'user_id', 'published'];
 
     // protected $casts = [
     //     'created_at' => 'datetime:Y-m-d',

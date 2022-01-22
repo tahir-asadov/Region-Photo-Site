@@ -15,6 +15,15 @@
     @enderror
   </div>
 
+
+  <div class="mb-2">
+    <label for="description" class="form-label fw-bold">Description</label>
+    <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="description of the post">{{old('description', $post->description)}}</textarea>
+    @error('description')
+    <div class="text-danger">{{$message}}</div>
+    @enderror
+  </div>
+
   <div class="mb-2">
     <label for="region" class="form-label fw-bold">Region</label>
     <select name="region" class="form-select @error('region') is-invalid @enderror" id="region">

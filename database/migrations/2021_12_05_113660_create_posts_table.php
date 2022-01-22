@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title', 128);
-            $table->string('description', 512);
+            $table->string('description', 512)->nullable();
             $table->boolean('published')->default(0);
             $table->foreignId('region_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('city_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');

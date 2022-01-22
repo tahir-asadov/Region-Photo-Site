@@ -49,7 +49,8 @@ class PostController extends Controller
   public function store(Request $request)
   {
     $data = $request->validate([
-      'title' => 'required|min:1|max:255',
+      'title' => 'required|min:1|max:128',
+      'description' => 'max:512',
       'region' => 'required|numeric|min:1',
       'city' => 'numeric',
       'village' => 'numeric',
@@ -58,6 +59,7 @@ class PostController extends Controller
 
     $create = array(
       'title' => $data['title'],
+      'description' => $data['description'],
       'region_id' => $data['region'],
       'city_id' => $data['city'],
       'village_id' => $data['village'],
@@ -128,7 +130,8 @@ class PostController extends Controller
   {
 
     $data = $request->validate([
-      'title' => 'required|min:1|max:255',
+      'title' => 'required|min:1|max:128',
+      'description' => 'max:512',
       'region' => 'required|numeric|min:1',
       'city' => 'numeric',
       'village' => 'numeric',
@@ -138,6 +141,7 @@ class PostController extends Controller
 
     $update = array(
       'title' => $data['title'],
+      'description' => $data['description'],
       'region_id' => $data['region'],
       'city_id' => $data['city'],
       'village_id' => $data['village'],
