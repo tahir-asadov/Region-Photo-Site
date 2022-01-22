@@ -2,7 +2,7 @@
 
 @section('meta')
 <meta property="og:title" content="{{$post->title}}" />
-<meta property="og:description" content="{{$post->title}}" />
+<meta property="og:description" content="{{$post->description}}" />
 <meta property="og:image" content="{{$post->featured_imaged()}}" />
 @endsection
 
@@ -24,6 +24,7 @@
               <div><b>Region: </b><a href="{{$post->region->url()}}">{{$post->region->title}}</a></div>
               <div><b>City: </b><a href="{{$post->city ? $post->city->url() : '#'}}">{{$post->city ? $post->city->title : '-'}}</a></div>
               <div><b>Village: </b><a href="{{$post->village ? $post->village->url() : '#'}}">{{$post->village ? $post->village->title : '-'}}</a></div>
+              <div class="description">{{$post->description}}</div>
           </div><!-- .info -->
           <div class="share">
             <h3>Share post on:</h3>

@@ -1,5 +1,3 @@
 {
-    "/js/admin.js": "/js/admin.js",
-    "/css/auth.css": "/css/auth.css",
-    "/css/users.css": "/css/users.css"
+    "/css/public.css": "/css/public.css"
 }

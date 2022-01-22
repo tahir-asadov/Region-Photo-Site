@@ -8277,6 +8277,9 @@ body.home .hero-section {
 .post-section .row-bottom .container .left .info > div b {
   margin-right: 10px;
 }
+.post-section .row-bottom .container .left .info > div.description {
+  grid-column: 1/-1;
+}
 .post-section .row-bottom .container .left .info a {
   text-decoration: none;
 }
