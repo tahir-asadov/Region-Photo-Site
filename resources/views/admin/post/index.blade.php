@@ -9,7 +9,6 @@
       <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Description</th>
         <th>Status</th>
         <th>Region</th>
         <th>City</th>
@@ -23,8 +22,7 @@
       @foreach ($posts as $post)
       <tr>
         <td>{{ $post->id }}</td>
-        <td>{{ $post->title }}</td>
-        <td>{{ $post->description }}</td>
+				<td><a href="{{$post->path()}}">{{ $post->title }}</a></td>
         <td>{{ $post->published ? 'Published' : 'Draft' }}</td>
         <td>{{ $post->region->title }}</td>
         <td>{{ $post->city ? $post->city->title : '-' }}</td>

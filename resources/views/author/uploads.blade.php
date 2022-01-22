@@ -18,7 +18,11 @@
 		@foreach ($posts as $post)
 			<tr>
 				<td>{{ $post->id }}</td>
+				@if ($post->published)
+				<td><a href="{{$post->path()}}">{{ $post->title }}</a></td>
+				@else
 				<td>{{ $post->title }}</td>
+				@endif
 				<td>{{ $post->published ? 'Published' : 'Draft' }}</td>
 				<td>{{ $post->region->title }}</td>
 				<td>{{ $post->city ? $post->city->title : '-' }}</td>
