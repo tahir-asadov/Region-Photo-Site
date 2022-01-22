@@ -19,7 +19,7 @@
       @foreach ($regions as $region)
       <tr>
         <td>{{$region->id}}</td>
-        <td><a href="#/{{$region->slug}}">{{$region->title}}</a></td>
+        <td><a href="{{route('public.region', ['region' => $region->slug])}}">{{$region->title}}</a></td>
         <td>{{$region->slug}}</td>
         <td>-</td>
         <td><a href="{{route('region.edit', ['region' => $region->id])}}">Edit</a></td>
