@@ -19,7 +19,7 @@
       @foreach ($cities as $city)
       <tr>
         <td>{{ $city->id }}</td>
-        <td>{{ $city->title }}</td>
+        <td><a href="{{route('public.city', ['city' => $city->slug])}}">{{ $city->title }}</a></td>
         <td>{{ $city->slug }}</td>
         <td>-</td>
         <td><a href="{{route('city.edit', ['city' => $city->id])}}">Edit</a></td>
