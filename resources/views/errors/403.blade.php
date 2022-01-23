@@ -5,6 +5,11 @@
 @section('title', __('Forbidden'))
 
 @section('content')
+  @auth
+  @if (auth()->user()->email_verified_at == null)
+  <div class="verify_email">Please verify your email</div>
+  @endif
+  @endauth
   <section class="error">
     <div class="row">
       <div class="container">

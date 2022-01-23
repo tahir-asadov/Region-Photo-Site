@@ -7246,6 +7246,18 @@ table {
   background: #1A1A1A;
 }
 
+/* ==========================================================================
+[Verify Email]
+========================================================================== */
+.verify_email {
+  width: 80%;
+  max-width: 300px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px auto;
+  color: orange;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
