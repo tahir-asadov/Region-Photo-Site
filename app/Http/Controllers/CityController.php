@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCityRequest;
+use App\Http\Requests\UpdateCityRequest;
 use App\Models\City;
 use Illuminate\Http\Request;
 
@@ -35,14 +37,11 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCityRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:cities',
-            'slug' => 'required|min:3|max:64|unique:cities',
-        ]);
+        $validated = $request->validated();
         
-        City::create($validatedData);
+        City::create($validated);
 
         return redirect()->route('city.index')->with('success', 'City added');
     }
@@ -77,15 +76,12 @@ class CityController extends Controller
      * @param  \App\Models\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, City $city)
+    public function update(UpdateCityRequest $request, City $city)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:cities,title,' . $city->id,
-            'slug' => 'required|min:3|max:64|unique:cities,slug,' . $city->id,
-        ]);
+        $validated = $request->validated();
 
-        $city->title = $request->input('title');
-        $city->slug = $request->input('slug');
+        $city->title = $validated['title'];
+        $city->slug = $validated['slug'];
         $city->save();
         return redirect()->route('city.index')->with('success', 'City updated!');
     }

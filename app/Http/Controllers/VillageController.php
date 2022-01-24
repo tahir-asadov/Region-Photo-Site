@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreVillageRequest;
+use App\Http\Requests\UpdateVillageRequest;
 use App\Models\Village;
 use Illuminate\Http\Request;
 
@@ -35,14 +37,11 @@ class VillageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreVillageRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:villages',
-            'slug' => 'required|min:3|max:64|unique:villages',
-        ]);
+        $validated = $request->validated();
         
-        Village::create($validatedData);
+        Village::create($validated);
 
         return redirect()->route('village.index')->with('success', 'Village added');
     }
@@ -78,15 +77,12 @@ class VillageController extends Controller
      * @param  \App\Models\Village  $village
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Village $village)
+    public function update(UpdateVillageRequest $request, Village $village)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:villages,title,' . $village->id,
-            'slug' => 'required|min:3|max:64|unique:villages,slug,' . $village->id,
-        ]);
+        $validated = $request->validated();
 
-        $village->title = $request->input('title');
-        $village->slug = $request->input('slug');
+        $village->title = $validated['title'];
+        $village->slug = $validated['slug'];
         $village->save();
         return redirect()->route('village.index')->with('success', 'Village updated!');
     }

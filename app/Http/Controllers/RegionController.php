@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreRegionRequest;
+use App\Http\Requests\UpdateRegionRequest;
 use App\Models\Region;
 use Illuminate\Http\Request;
 
@@ -35,14 +37,11 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRegionRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:regions',
-            'slug' => 'required|min:3|max:64|unique:regions',
-        ]);
+        $validated = $request->validated();
         
-        Region::create($validatedData);
+        Region::create($validated);
 
         return redirect()->route('region.index')->with('success', 'Region added');
     }
@@ -78,15 +77,11 @@ class RegionController extends Controller
      * @param  \App\Models\Region  $region
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Region $region)
+    public function update(UpdateRegionRequest $request, Region $region)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|min:3|max:64|unique:regions,title,' . $region->id,
-            'slug' => 'required|min:3|max:64|unique:regions,slug,' . $region->id,
-        ]);
-
-        $region->title = $request->input('title');
-        $region->slug = $request->input('slug');
+        $validated = $request->validated();
+        $region->title = $validated['title'];
+        $region->slug = $validated['slug'];
         $region->save();
         return redirect()->route('region.index')->with('success', 'Region updated!');
     }

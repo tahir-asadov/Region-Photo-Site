@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSettingRequest;
+use App\Http\Requests\UpdateSettingRequest;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -36,15 +38,14 @@ class SettingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSettingRequest $request)
     {
-        $validatedData = $request->validate([
-            'key' => 'required|min:3|max:64|unique:settings',
-            'value' => 'required|max:2048',
-        ]);
+        $validated = $request->validated();
         
-        Setting::create($validatedData);
+        Setting::create($validated);
+
         Cache::flush();
+
         return redirect()->route('setting.index')->with('success', 'Setting added');
     }
 
@@ -79,13 +80,11 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Setting $setting)
+    public function update(UpdateSettingRequest $request, Setting $setting)
     {
-        $request->validate([
-            'value' => 'required|max:64'
-        ]);
+        $validated = $request->validated();
 
-        $setting->value = $request->input('value');
+        $setting->value = $validated['value'];
         $setting->save();
         Cache::flush();
         return redirect()->route('setting.index')->with('success', 'Setting updated!');
