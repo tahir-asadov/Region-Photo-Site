@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostAdded;
 use App\Models\City;
 use App\Models\Image;
 use App\Models\Post;
@@ -133,6 +134,9 @@ class AuthorController extends Controller
       }
 
     }
+
+    event(new PostAdded($post));
+
     return redirect()->route('author.uploads')->with('success', 'Post added');
   }
 
