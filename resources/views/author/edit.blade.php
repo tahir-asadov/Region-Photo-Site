@@ -96,7 +96,7 @@
     <form action="{{route('author.delete_image', ['id' => $item->id])}}" method="post">
       @csrf
       @method('delete')
-      <button>x</button>
+      <button onclick="return confirm('Are you sure?')">x</button>
     </form>
   </div><!-- .image -->  
   @endforeach

@@ -27,7 +27,7 @@
           <form action="{{route('city.destroy', ['city' => $city->id])}}" method="post">
             @csrf
             @method('delete')
-            <input type="submit" value="Delete">
+            <input onclick="return confirm('Are you sure?')" type="submit" value="Delete">
           </form>
         </td>
       </tr>

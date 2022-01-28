@@ -29,7 +29,7 @@
           <form action="{{route('setting.destroy', ['setting' => $setting->id])}}" method="post">
             @csrf
             @method('delete')
-            <input type="submit" value="Delete">
+            <input onclick="return confirm('Are you sure?')" type="submit" value="Delete">
           </form>
         </td>
       </tr>
