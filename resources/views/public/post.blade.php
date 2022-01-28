@@ -51,7 +51,7 @@
           <div class="thumbs">
             @foreach ($post->images as $image)
             <div>
-              <img original="/storage/post_images/{{$image->path}}" src="/storage/post_images/{{$image->thumbnail}}" alt="">
+              <img loading="lazy" original="/storage/post_images/{{$image->path}}" src="/storage/post_images/{{$image->thumbnail}}" alt="">
               <a href="/storage/post_images/{{$image->path}}" download><i class="fas fa-download"></i></a>
             </div>
             @endforeach
@@ -60,7 +60,7 @@
             
             @foreach ($post->images as $image)
               @if ($loop->first)
-                <img src="/storage/post_images/{{$image->path}}" alt="">
+                <img loading="lazy" src="/storage/post_images/{{$image->path}}" alt="">
                 @break
               @endif
             @endforeach
