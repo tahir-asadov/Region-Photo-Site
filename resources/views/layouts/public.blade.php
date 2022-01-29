@@ -28,7 +28,7 @@
     @if (session('status'))
     <div class="notification status-notification">
       <p>
-        {{ session('status') }}
+        {!! session('status') !!}
       </p>
     </div>
     @endif
@@ -36,7 +36,7 @@
     @if (session('success'))
     <div class="notification success-notification">
       <p>
-        {{ session('success') }}
+        {!! session('success') !!}
       </p>
     </div>
     @endif

@@ -33,7 +33,7 @@ Route::get('/author/{user}', [HomeController::class, 'author'])->name('public.au
 
 
 Route::get('verification-notice', function () {
-  return redirect()->route('home')->with('status', 'Verify your email <a href="' . route('resend-email') . '">Resend email</a>');
+  return redirect()->route('home')->with('status', 'Verify your email or <a href="' . route('resend-email') . '">Resend verification email</a>');
 })->name('verification.notice');
 
 
