@@ -32,6 +32,11 @@ Route::get('/village/{village:slug}', [HomeController::class, 'village'])->name(
 Route::get('/author/{user}', [HomeController::class, 'author'])->name('public.author');
 
 
+Route::get('verification-notice', function () {
+  return redirect()->route('home')->with('status', 'Verify your email <a href="' . route('resend-email') . '">Resend email</a>');
+})->name('verification.notice');
+
+
 // Guest pages
 Route::group(['middleware' => ['guest']], function () {
 
@@ -46,7 +51,7 @@ Route::group(['middleware' => ['guest']], function () {
   Route::get('forgot-password', function () {
     return view('auth.forgot-password');
   });
-
+  
   /*
     Social logins
     */
@@ -90,7 +95,15 @@ Route::group(['middleware' => ['role:super-admin|basic-user', 'verified']], func
   });
 });
 
+Route::group(['middleware' => ['role:super-admin|basic-user']], function () {
 
+  Route::get('/resend-email', [UserController::class, 'resend'])->name('resend-email');
+
+  Route::post('/resend-email-verification', [UserController::class, 'resend_email'])->name('resend-email-verification');
+
+  
+
+});
 // Super Admin pages
 Route::group(['middleware' => ['role:super-admin', 'verified']], function () {
 

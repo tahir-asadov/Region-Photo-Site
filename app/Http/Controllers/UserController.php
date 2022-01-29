@@ -128,4 +128,20 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('user.index')->with('success', 'Region deleted!');
     }
+
+
+    
+    
+    public function resend() {
+        return view('auth.resend');
+    }
+    
+    public function resend_email(Request $request) {
+        $user = User::where("email", auth()->user()->email)->first();
+        if($user){
+            $user->sendEmailVerificationNotification();
+            return redirect()->route('home')->with('success', 'Please check your email!');
+        }
+        return redirect()->route('home')->with('error', 'Couldn\'t find the email!');
+    }
 }

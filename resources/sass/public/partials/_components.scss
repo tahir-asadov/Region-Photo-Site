@@ -268,6 +268,43 @@
   }
 }
 
+
+.notification {
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 98%;
+  margin: 10px auto;
+  p {
+    margin: 0;
+  }
+  &.success-notification {
+    background: #ecf0ec;
+    border: solid 1px green;
+    color: green;
+    p {
+      color: green;
+    }
+  }
+  &.status-notification {
+    background: #a2d7ec;
+    border: solid 1px #108cbd;
+    color: #108cbd;
+    p {
+      color: #108cbd;
+    }
+  }
+  &.error-notification {
+    background: #fbdbdb;
+    border: solid 1px #dc3545;
+    color: #dc3545;
+    p {
+      color: #dc3545;
+    }
+  }
+}
+
 @media only screen and (max-width: 992px) {
   .mobile-menu-button {
     display: flex;
