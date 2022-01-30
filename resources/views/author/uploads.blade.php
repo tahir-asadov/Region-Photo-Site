@@ -23,12 +23,17 @@
 				@else
 				<td>{{ $post->title }}</td>
 				@endif
-				<td>{{ $post->published ? 'Published' : 'Draft' }}</td>
+				<td>{{ $post->published ? 'Published' : 'Pending' }}</td>
 				<td>{{ $post->region->title }}</td>
 				<td>{{ $post->city ? $post->city->title : '-' }}</td>
 				<td>{{ $post->village ? $post->village->title : '-' }}</td>
-				<td>{{ $post->user->name }}</td>
-				<td><a href="{{ route('author.edit', ['id' => $post->id]) }}">Edit</a></td>
+				<td>
+					@if ($post->published)
+					<a href="{{ route('author.edit', ['id' => $post->id]) }}">Edit</a>
+					@else
+					-
+					@endif
+				</td>
 				<td>
 					<form action="{{ route('author.destroy', ['id' => $post->id]) }}" method="post">
 					@csrf

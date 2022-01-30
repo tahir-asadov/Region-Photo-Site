@@ -18,7 +18,15 @@
             {!! implode('', $errors->all('<p>:message</p>')) !!}
           </div>
           @endif
-
+          
+          @if (session('error'))
+          <div class="notification error-notification">
+            <p>
+              {{ session('error') }}
+            </p>
+          </div>
+          @endif
+          
           @if (session('status'))
           <div class="notification status-notification">
             <p>

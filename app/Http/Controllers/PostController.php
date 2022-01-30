@@ -114,7 +114,7 @@ class PostController extends Controller
       'regions' => Region::latest()->get(),
       'cities' => City::latest()->get(),
       'villages' => Village::latest()->get(),
-      'statuses' => array('0' => 'Draft', '1' => 'Published'),
+      'statuses' => array('0' => 'Pending', '1' => 'Published'),
       'post' => $post
     ]);
   }

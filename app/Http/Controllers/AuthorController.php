@@ -144,12 +144,17 @@ class AuthorController extends Controller
 
   public function edit($id)
   {
-    $post = Post::where(['user_id' => auth()->user()->id, 'id' => $id])->first();
+    $post = Post::where(['user_id' => auth()->user()->id, 'published' => 1, 'id' => $id])->first();
+
+    if( ! $post ){
+      return redirect()->route('author.uploads')->with('error', 'Post not found');
+    }
+
     return view('author.edit', [
         'regions' => Region::latest()->get(),
         'cities' => City::latest()->get(),
         'villages' => Village::latest()->get(),
-        'statuses' => array('0' => 'Draft', '1' => 'Published'),
+        'statuses' => array('0' => 'Pending', '1' => 'Published'),
         'post' => $post
     ]);    
   }

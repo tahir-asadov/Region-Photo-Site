@@ -23,7 +23,7 @@
       <tr>
         <td>{{ $post->id }}</td>
 				<td><a href="{{$post->path()}}">{{ $post->title }}</a></td>
-        <td>{{ $post->published ? 'Published' : 'Draft' }}</td>
+        <td>{{ $post->published ? 'Published' : 'Pending' }}</td>
         <td>{{ $post->region->title }}</td>
         <td>{{ $post->city ? $post->city->title : '-' }}</td>
         <td>{{ $post->village ? $post->village->title : '-' }}</td>
