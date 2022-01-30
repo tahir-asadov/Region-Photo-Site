@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\PostAdded;
+use App\Events\PostUpdated;
 use App\Models\City;
 use App\Models\Image;
 use App\Models\Post;
@@ -201,6 +202,7 @@ class AuthorController extends Controller
         }
       }
 
+      event(new PostUpdated($post));
       // return redirect()->route('author.edit', ['id' => $post->id])->with('success', 'Post updated');
       return redirect()->route('author.uploads')->with('success', 'Post added');
     }else {
