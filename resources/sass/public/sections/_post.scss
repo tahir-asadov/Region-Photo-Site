@@ -38,13 +38,37 @@
             text-decoration: none;
           }
         }
-        .share {
+        .share, .like {
           display: flex;
           justify-content: space-between;
           border-bottom: solid 1px #eee;
           padding: 10px 0;
           h3 {
             font-size: 16px;
+          }
+          > div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            span {
+              cursor: pointer;
+              i {
+                color: gray;
+              }
+              &.liked {
+                i {
+                  color: orangered;
+                }
+                &.jump {
+                  animation-name: jump;
+                  animation-timing-function: ease-in-out;
+                  animation-duration: 0.2s;
+                  animation-iteration-count: 1;
+                  animation-fill-mode: both;
+                  transform-origin: center;
+                }
+              }
+            }
           }
           .social {
             height: 100%;
@@ -230,5 +254,25 @@
         }
       }
     }
+  }
+}
+
+
+
+@keyframes jump {
+  from {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  to {
+    transform: scale(1);
   }
 }

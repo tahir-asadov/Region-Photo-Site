@@ -8,6 +8,7 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VillageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SocialLoginController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 
 // Public pages
 Route::get('', [HomeController::class, 'index'])->name('home');
-Route::get('/post/{slug}/{post}', [HomeController::class, 'post'])->name('public.post');
+Route::get('/post/{slug}/{post_id}', [HomeController::class, 'post'])->name('public.post');
 Route::get('/region/{region:slug}', [HomeController::class, 'region'])->name('public.region');
 Route::get('/city/{city:slug}', [HomeController::class, 'city'])->name('public.city');
 Route::get('/village/{village:slug}', [HomeController::class, 'village'])->name('public.village');
@@ -92,7 +93,10 @@ Route::group(['middleware' => ['role:super-admin|basic-user', 'verified']], func
     Route::get('resend-email', function () {
       return view('users.resend-email');
     });
+    
   });
+
+  Route::get('like/{post_id}', [AuthorController::class, 'like'])->name('like');
 });
 
 Route::group(['middleware' => ['role:super-admin|basic-user']], function () {

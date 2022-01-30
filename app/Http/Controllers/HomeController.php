@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Region;
 use App\Models\Setting;
@@ -22,7 +23,7 @@ class HomeController extends Controller
 
         $search = $request->input('s');
 
-        $posts = Post::where(['published' => 1])->latest()->with('city', 'user', 'images');
+        $posts = Post::where(['published' => 1])->latest()->with('city', 'user', 'images', 'likes');
 
         if($search != '') {
             $posts->where('title', 'LIKE', "%{$search}%");
@@ -33,10 +34,18 @@ class HomeController extends Controller
         ]);
     }
 
-    public function post($slug, Post $post)
+    public function post($slug, $post_id)
     {
+        $hasLiked = Like::first()->where(
+            [
+                'post_id' => $post_id,
+                'user_id' => auth()->user()->id
+            ]
+        )->get();
+        $post = Post::where(['id' => $post_id])->with('region', 'city', 'village', 'user', 'images', 'likes')->first();
         return view('public.post', [
-            'post' => $post
+            'post' => $post,
+            'liked' => $hasLiked->count()
         ]);
     }
 

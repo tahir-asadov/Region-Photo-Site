@@ -55,6 +55,7 @@
         bottom: 0;
         z-index: 3;
         width: 100%;
+        background: rgba(0,0,0,0.5);
         a, span {
           color: white;
           text-decoration: none;
@@ -71,6 +72,27 @@
             font-weight: 500;
             &:before {
               content: "#";
+            }
+          }
+          > div {
+            display: flex;
+            > * {
+              margin-right: 10px;
+              display: flex;
+              align-items: center;
+              line-height: 1;
+              i {
+                margin-left: 5px;
+              }
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+            .images {
+
+            }
+            .likes {
+              // color: white;
             }
           }
         }

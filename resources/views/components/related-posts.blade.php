@@ -10,7 +10,7 @@
       <div class="container">
         @foreach ($posts as $post)
         <div>
-            <a href="{{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}">
+            <a href="{{route('public.post', ['slug' => $post->url(), 'post_id' => $post->id])}}">
                 <img loading="lazy" src="/storage/post_images/{{$post->thumbnail()}}" alt="">
             </a>
             <div class="info">

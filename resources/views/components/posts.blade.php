@@ -5,7 +5,7 @@
         <div class="row row-top">
             @foreach ($posts as $post)
             <div>
-                <a href="{{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}">
+                <a href="{{route('public.post', ['slug' => $post->url(), 'post_id' => $post->id])}}">
                     <img loading="lazy" src="/storage/post_images/{{$post->thumbnail()}}" alt="">
                 </a>
                 <div class="info">
@@ -13,7 +13,12 @@
                         @if ($post->city)
                         <a href="{{$post->city->url()}}">{{$post->city->title}}</a>
                         @endif
-                        <span>{{count($post->images)}} photos</span>
+                        <div>
+                            @if ($post->likes->count() > 0)
+                            <span class="likes">{{$post->likes->count()}} <i class="fas fa-heart"></i></span><!-- .likes -->
+                            @endif
+                            <span class="images">{{count($post->images)}} <i class="fas fa-images"></i></span>
+                        </div>
                     </div><!-- .top -->
                     <div class="bottom">
                         <a href="{{$post->user->url()}}">{{$post->user->name}}</a>

@@ -8225,6 +8225,7 @@ body.home .hero-section {
   bottom: 0;
   z-index: 3;
   width: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 .posts-section .row-top > div .info a, .posts-section .row-top > div .info span {
   color: white;
@@ -8244,6 +8245,21 @@ body.home .hero-section {
 }
 .posts-section .row-top > div .info .top a:before {
   content: "#";
+}
+.posts-section .row-top > div .info .top > div {
+  display: flex;
+}
+.posts-section .row-top > div .info .top > div > * {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.posts-section .row-top > div .info .top > div > * i {
+  margin-left: 5px;
+}
+.posts-section .row-top > div .info .top > div > *:last-child {
+  margin-right: 0;
 }
 .posts-section .row-top > div .info .bottom {
   display: flex;
@@ -8331,34 +8347,61 @@ body.home .hero-section {
 .post-section .row-bottom .container .left .info a {
   text-decoration: none;
 }
-.post-section .row-bottom .container .left .share {
+.post-section .row-bottom .container .left .share, .post-section .row-bottom .container .left .like {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px #eee;
   padding: 10px 0;
 }
-.post-section .row-bottom .container .left .share h3 {
+.post-section .row-bottom .container .left .share h3, .post-section .row-bottom .container .left .like h3 {
   font-size: 16px;
 }
-.post-section .row-bottom .container .left .share .social {
+.post-section .row-bottom .container .left .share > div, .post-section .row-bottom .container .left .like > div {
   height: 100%;
   display: flex;
   align-items: center;
 }
-.post-section .row-bottom .container .left .share .social a {
+.post-section .row-bottom .container .left .share > div span, .post-section .row-bottom .container .left .like > div span {
+  cursor: pointer;
+}
+.post-section .row-bottom .container .left .share > div span i, .post-section .row-bottom .container .left .like > div span i {
+  color: gray;
+}
+.post-section .row-bottom .container .left .share > div span.liked i, .post-section .row-bottom .container .left .like > div span.liked i {
+  color: orangered;
+}
+.post-section .row-bottom .container .left .share > div span.liked.jump, .post-section .row-bottom .container .left .like > div span.liked.jump {
+  -webkit-animation-name: jump;
+          animation-name: jump;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.2s;
+          animation-duration: 0.2s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  transform-origin: center;
+}
+.post-section .row-bottom .container .left .share .social, .post-section .row-bottom .container .left .like .social {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.post-section .row-bottom .container .left .share .social a, .post-section .row-bottom .container .left .like .social a {
   padding: 0 10px;
   font-size: 20px;
 }
-.post-section .row-bottom .container .left .share .social a.facebook {
+.post-section .row-bottom .container .left .share .social a.facebook, .post-section .row-bottom .container .left .like .social a.facebook {
   color: #4267B2;
 }
-.post-section .row-bottom .container .left .share .social a.twitter {
+.post-section .row-bottom .container .left .share .social a.twitter, .post-section .row-bottom .container .left .like .social a.twitter {
   color: #1DA1F2;
 }
-.post-section .row-bottom .container .left .share .social a.pinterest {
+.post-section .row-bottom .container .left .share .social a.pinterest, .post-section .row-bottom .container .left .like .social a.pinterest {
   color: #E60023;
 }
-.post-section .row-bottom .container .left .share .social a:last-child {
+.post-section .row-bottom .container .left .share .social a:last-child, .post-section .row-bottom .container .left .like .social a:last-child {
   padding-right: 0;
 }
 .post-section .row-bottom .container .right {
@@ -8494,6 +8537,40 @@ body.home .hero-section {
   }
   .post-section .row-bottom .container .right .main img {
     max-width: 100%;
+  }
+}
+@-webkit-keyframes jump {
+  from {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes jump {
+  from {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.7);
+  }
+  to {
+    transform: scale(1);
   }
 }
 /* ==========================================================================

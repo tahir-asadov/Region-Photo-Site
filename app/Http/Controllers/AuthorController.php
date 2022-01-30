@@ -6,6 +6,7 @@ use App\Events\PostAdded;
 use App\Events\PostUpdated;
 use App\Models\City;
 use App\Models\Image;
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Region;
 use App\Models\User;
@@ -243,5 +244,29 @@ class AuthorController extends Controller
     $post = Post::where(['user_id' => auth()->user()->id, 'id' => $id])->first();
     $post->delete();
     return redirect()->route('author.uploads')->with('success', 'Post deleted!');
+  }
+
+  public function like($post_id) {
+    
+    $like_count = Like::where(
+      ['post_id' => $post_id,
+      'user_id' => auth()->user()->id
+      ]
+    )->count();
+
+    if($like_count) {
+      Like::dislike($post_id);
+    }else {
+      Like::like($post_id);
+    }
+
+    return response()->json([
+      'liked' => $like_count > 0 ? false : true,
+      'count' => Like::where(
+        [
+          'post_id' => $post_id
+        ]
+      )->get()->count(),
+    ]);
   }
 }

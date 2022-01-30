@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix
     // .js('resources/js/admin/admin.js', 'js/admin.js')
-    // .js('resources/js/public/public.js', 'js/public.js')
+    .js('resources/js/public/public.js', 'js/public.js')
     // .js('resources/js/users/users.js', 'js/users.js')
     // .sass('resources/sass/admin/admin.scss', 'css/admin.css')
     .sass('resources/sass/public/public.scss', 'css/public.css')

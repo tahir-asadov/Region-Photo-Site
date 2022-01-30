@@ -31,21 +31,30 @@
             <div class="social">
               <a
                 target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}"
+                href="https://www.facebook.com/sharer/sharer.php?u={{route('public.post', ['slug' => $post->url(), 'post_id' => $post->id])}}"
                 class="facebook"
               ><i class="fab fa-facebook-f"></i></a>
               <a
                 target="_blank"
-                href="http://twitter.com/share?text={{$post->title}}&url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city ? $post->city->title : ''}}"
+                href="http://twitter.com/share?text={{$post->title}}&url={{route('public.post', ['slug' => $post->url(), 'post_id' => $post->id])}}&hashtags={{$post->region->title}},{{$post->city ? $post->city->title : ''}}"
                 class="twitter"
               ><i class="fab fa-twitter"></i></a>
               <a
                 target="_blank"
-                href="http://pinterest.com/pin/create/button/?url={{route('public.post', ['slug' => $post->url(), 'post' => $post->id])}}"
+                href="http://pinterest.com/pin/create/button/?url={{route('public.post', ['slug' => $post->url(), 'post_id' => $post->id])}}"
                 class="pinterest"
               ><i class="fab fa-pinterest-p"></i></a>
             </div><!-- .social -->
           </div><!-- .share -->
+          <div class="like">
+            <h3>Like:</h3>
+            <div>
+              <span id="like-dislike" class="{{$liked > 0 ? 'liked' : '' }}" data-post-id="{{$post->id}}">
+                <span>{{$post->likes->count()}}</span>
+                <i class="fas fa-heart"></i>
+              </span>
+            </div>
+          </div><!-- .like -->
         </div><!-- .left -->
         <div class="right single-post-gallery">
           <div class="thumbs">
