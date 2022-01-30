@@ -42,11 +42,11 @@ Route::group(['middleware' => ['guest']], function () {
 
   Route::get('login', function () {
     return view('auth.login');
-  })->name('login');
+  })->name('auth.login');
 
   Route::get('register', function () {
     return view('auth.register');
-  });
+  })->name('auth.register');
 
   Route::get('forgot-password', function () {
     return view('auth.forgot-password');

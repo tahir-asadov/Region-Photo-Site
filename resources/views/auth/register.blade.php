@@ -18,5 +18,11 @@
       <div class="d-flex justify-content-center">
         <input type="submit" class="btn btn-primary mt-3" value="Register">
       </div>
+      <div class="d-flex justify-content-center p-2">
+        <div>or</div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div><a href="{{route('auth.login')}}">Login</a></div>
+      </div>
     </form>
 @endsection

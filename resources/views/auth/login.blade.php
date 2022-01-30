@@ -26,5 +26,11 @@
   <a class="btn btn-info" href="/auth/twitter"><i class="fab fa-twitter"></i>Twitter</a>
   <a class="btn btn-dark" href="/auth/github"><i class="fab fa-github"></i>Github</a>
 </div><!-- .social-logons -->
+<div class="d-flex justify-content-center p-2">
+  <div>or</div>
+</div>
+<div class="d-flex justify-content-center">
+  <div><a href="{{route('auth.register')}}">Register</a></div>
+</div>
 
 @endsection
