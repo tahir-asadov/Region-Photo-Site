@@ -11,5 +11,7 @@
 ## Installation
 
 ### First install dependencies by runnging ```composer install```
+### To generate app key run ```php artisan key:generate```
 ### Then migrate database by runnging ```php artisan migrate --seed```
-### Run ```php artisan storage:link``` to create symlink
+### Run ```php artisan storage:link``` to create symlinks
+
