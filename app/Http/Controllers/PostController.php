@@ -8,7 +8,8 @@ use App\Models\Post;
 use App\Models\Region;
 use App\Models\Village;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 // use Illuminate\Support\Facades\Storage;
 // use Illuminate\Support\Str;
 
@@ -46,18 +47,11 @@ class PostController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(StorePostRequest $request)
   {
-    $data = $request->validate([
-      'title' => 'required|min:1|max:128',
-      'description' => 'max:512',
-      'region' => 'required|numeric|min:1',
-      'city' => 'numeric',
-      'village' => 'numeric',
-      'image.*' => 'required|mimes:jpg,bmp,png'
-    ]);
+    $data = $request->validated();
 
-    $create = array(
+    $validated = array(
       'title' => $data['title'],
       'description' => $data['description'],
       'region_id' => $data['region'],
@@ -67,14 +61,14 @@ class PostController extends Controller
     );
 
     if( !$data['village'] ) {
-      unset($create['village_id']);
+      unset($validated['village_id']);
     }
 
     if( !$data['city'] ) {
-      unset($create['city_id']);
+      unset($validated['city_id']);
     }
 
-    $post = Post::create($create);
+    $post = Post::create($validated);
     if ($post) {
       foreach ($request->file('image') as $key => $file) {
         $fileTitle = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -126,33 +120,25 @@ class PostController extends Controller
    * @param  \App\Models\Post  $post
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Post $post)
+  public function update(UpdatePostRequest $request, Post $post)
   {
 
-    $data = $request->validate([
-      'title' => 'required|min:1|max:128',
-      'description' => 'max:512',
-      'region' => 'required|numeric|min:1',
-      'city' => 'numeric',
-      'village' => 'numeric',
-      'status' => 'required|numeric',
-      'image.*' => 'required|mimes:jpg,bmp,png'
-    ]);
+    $validated = $request->validated();
 
     $update = array(
-      'title' => $data['title'],
-      'description' => $data['description'],
-      'region_id' => $data['region'],
-      'city_id' => $data['city'],
-      'village_id' => $data['village'],
-      'published' => $data['status'],
+      'title' => $validated['title'],
+      'description' => $validated['description'],
+      'region_id' => $validated['region'],
+      'city_id' => $validated['city'],
+      'village_id' => $validated['village'],
+      'published' => $validated['status'],
     );
 
-    if( !$data['village'] ) {
+    if( !$validated['village'] ) {
       unset($update['village_id']);
     }
 
-    if( !$data['city'] ) {
+    if( !$validated['city'] ) {
       unset($update['city_id']);
     }
 
