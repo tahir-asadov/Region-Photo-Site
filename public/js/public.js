@@ -29,27 +29,29 @@ try {
   _iterator.f();
 }
 
-document.querySelector('#like-dislike').addEventListener('click', function () {
-  var likeButton = this;
+if (document.querySelector('#like-dislike') != undefined) {
+  document.querySelector('#like-dislike').addEventListener('click', function () {
+    var likeButton = this;
 
-  if (likeButton.dataset.postId != undefined) {
-    fetch("/like/".concat(likeButton.dataset.postId)).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log('data', data);
+    if (likeButton.dataset.postId != undefined) {
+      fetch("/like/".concat(likeButton.dataset.postId)).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log('data', data);
 
-      if (data.liked) {
-        likeButton.classList.add("liked");
-        likeButton.classList.add("jump");
-      } else {
-        likeButton.classList.remove("liked");
-        likeButton.classList.remove("jump");
-      }
+        if (data.liked) {
+          likeButton.classList.add("liked");
+          likeButton.classList.add("jump");
+        } else {
+          likeButton.classList.remove("liked");
+          likeButton.classList.remove("jump");
+        }
 
-      document.querySelector('#like-dislike span').innerHTML = data.count;
-    });
-  }
-});
+        document.querySelector('#like-dislike span').innerHTML = data.count;
+      });
+    }
+  });
+}
 
 /***/ }),
 

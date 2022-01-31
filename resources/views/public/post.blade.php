@@ -46,6 +46,7 @@
               ><i class="fab fa-pinterest-p"></i></a>
             </div><!-- .social -->
           </div><!-- .share -->
+          @auth
           <div class="like">
             <h3>Like:</h3>
             <div>
@@ -55,6 +56,7 @@
               </span>
             </div>
           </div><!-- .like -->
+          @endauth
         </div><!-- .left -->
         <div class="right single-post-gallery">
           <div class="thumbs">

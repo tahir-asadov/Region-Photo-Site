@@ -36,16 +36,26 @@ class HomeController extends Controller
 
     public function post($slug, $post_id)
     {
-        $hasLiked = Like::first()->where(
-            [
-                'post_id' => $post_id,
-                'user_id' => auth()->user()->id
-            ]
-        )->get();
+        $liked = false;
+
+        if(auth()->user()) {
+
+            $hasLiked = Like::first()->where(
+                [
+                    'post_id' => $post_id,
+                    'user_id' => auth()->user()->id
+                ]
+            )->get();
+
+            if($hasLiked->count() > 0) {
+                $liked = true;
+            }
+        }
+
         $post = Post::where(['id' => $post_id])->with('region', 'city', 'village', 'user', 'images', 'likes')->first();
         return view('public.post', [
             'post' => $post,
-            'liked' => $hasLiked->count()
+            'liked' => $liked
         ]);
     }
 
