@@ -99,7 +99,7 @@ Route::group(['middleware' => ['role:super-admin|basic-user', 'verified']], func
   Route::get('like/{post_id}', [AuthorController::class, 'like'])->name('like');
 });
 
-Route::group(['middleware' => ['role:super-admin|basic-user']], function () {
+  Route::group(['middleware' => ['role:super-admin|basic-user']], function () {
 
   Route::get('/resend-email', [UserController::class, 'resend'])->name('resend-email');
 
