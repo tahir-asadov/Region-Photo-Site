@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -39,18 +41,14 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|min:3|max:64',
-            'email' => 'required|email|unique:users',
-            'password' => "required|string|min:3|confirmed"
-        ]);
+        $validated = $request->validated();
 
         $new_user = User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => Hash::make($validatedData['password']),
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
         ]);
 
         $new_roles = $request->input('roles');
@@ -92,21 +90,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|min:3|max:64|',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => "sometimes|nullable|required_with:password_confirmation|string|min:3|confirmed|"
-        ]);
+        $validated = $request->validated();
         
         $data = [
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
         ];
 
-        if($validatedData['password'] != null) {
-            $data['password'] = Hash::make($validatedData['password']);
+        if($validated['password'] != null) {
+            $data['password'] = Hash::make($validated['password']);
         }
         
         $user->update($data);
