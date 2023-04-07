@@ -1,9 +1,6 @@
 @extends('layouts.admin')
-
-@section('title', 'Users')
-
+@section('title', 'Add new user')
 @section('content')
-  <h3 class="border-bottom pb-2 mb-3">Add new user</h3>
   <form action="{{route('user.store')}}" method="post">
     @csrf
     @method('post')
